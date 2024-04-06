@@ -7,7 +7,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <p>
-          Nathaniel's React based Chat App.
+          Thanks for visiting the Chat App
         </p>
         <img src={logo} className="App-logo" alt="logo" />
         <Auth />
