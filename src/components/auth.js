@@ -7,9 +7,14 @@ const cookie = new Cookies();
 export const Auth = () => {
 
     const signInWithGoogle = async () => {
-        const result = await signInWithPopup(auth, provider);
-        console.log(result);
-        cookie.set("auth-token", result.user.refreshToken);
+        try {
+            const result = await signInWithPopup(auth, provider);
+            console.log(result);
+            cookie.set("auth-token", result.user.refreshToken);
+        }
+        catch (err) {
+            console.log(err);
+        }
     };
 
     return (
