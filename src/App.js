@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import { Auth } from './components/auth';
+import { Chat } from './components/chat';
 import { useState, useRef } from 'react';
 import Cookies from "universal-cookie";
 const cookie = new Cookies(); 
@@ -33,11 +34,11 @@ function App() {
         </p>
         <img src={logo} className="App-logo" alt="logo" />
         <div> {room ? (
-                <div>{room} Chat</div> 
+                <Chat room={room}/> 
               ) : (
                 <div> 
                   <label>Enter a Chat Room Name</label>
-                  <input ref={roomInputRef} class="room-name"/>
+                  <input ref={roomInputRef} className="input"/>
                   <button onClick={() => setRoom(roomInputRef.current.value)}>
                     Join Chat
                   </button>
