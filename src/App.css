@@ -52,8 +52,33 @@
   }
 }
 
+.chat-container {
+  border: 2px solid #61dafb;
+  margin-bottom: 60px;
+  border-radius: 6px;
+  padding: 26px;
+}
+
+form {
+  margin: auto;
+}
+
 .input {
   display: block; 
   border-radius: 20px; 
   margin: 16px auto;
+  line-height: 27px;
+  width: 400px;
+}
+
+.chat-room-name {
+  border-radius: 3px;
+  background-color: #009688;
+  letter-spacing: 12px;
+  padding: 12px;
+  text-align: center;
+}
+
+.chats {
+  text-align: left;
 }
