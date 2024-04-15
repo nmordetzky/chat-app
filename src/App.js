@@ -3,6 +3,8 @@ import './App.css';
 import { Auth } from './components/auth';
 import { Chat } from './components/chat';
 import { useState, useRef } from 'react';
+import { signOut} from 'firebase/auth';
+import { auth } from './firebase-config';
 import Cookies from "universal-cookie";
 const cookie = new Cookies(); 
 
@@ -11,6 +13,12 @@ function App() {
   const [room, setRoom] = useState(null);
 
   const roomInputRef = useRef(null);
+  const signUserOut = async () => {
+    await signOut(auth);
+    cookie.remove('auth-token');
+    setIsAuth(false);
+    setRoom(null);
+  };
 
   if (!isAuth) {
     return (
@@ -22,6 +30,7 @@ function App() {
           <img src={logo} className="App-logo" alt="logo" />
           <Auth setIsAuth={setIsAuth}/>
         </header>
+        <div className="footer"></div>
       </div>
     );
   }
@@ -33,9 +42,13 @@ function App() {
           Welcome to the React Chat App
         </p>
         <img src={logo} className="App-logo" alt="logo" />
-        <div> {room ? (
+        <div> 
+          {room ? 
+              ( 
                 <Chat room={room}/> 
-              ) : (
+              ) 
+            : 
+              (
                 <div> 
                   <label>Type in a chat room name</label>
                   <input ref={roomInputRef} className="input"/>
@@ -43,7 +56,14 @@ function App() {
                     Join Chat
                   </button>
                 </div>
-              )}
+              )
+          }
+          <div className='sign-out'>
+            <button onClick={signUserOut}>
+              Sign Out
+            </button>
+          </div>
+          <div className="footer"></div>
         </div>
       </header>
     </div>
