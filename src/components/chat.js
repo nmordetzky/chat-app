@@ -35,6 +35,7 @@ export const Chat = (props) => {
             text: newMessage,
             createdAt: serverTimestamp(),
             user: auth.currentUser.displayName,
+            userPhoto: auth.currentUser.photoURL,
             room
         });
 
@@ -48,6 +49,7 @@ export const Chat = (props) => {
             <div className="chats">
                 {messages.map((message) => (
                     <div key={message.id}>
+                        <img src={message.userPhoto} />
                         <strong>{message.user} &nbsp;&nbsp;</strong>
                         {message.text}
                     </div>

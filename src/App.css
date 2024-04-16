@@ -81,6 +81,13 @@ form {
 
 .chats {
   text-align: left;
+  img {
+    position: relative;
+    vertical-align: middle;
+    border-radius: 100%;
+    height: 56px;
+    margin: 2px 12px 12px 0;
+  }
 }
 
 .sign-out {
