@@ -67,6 +67,7 @@ form {
   display: block; 
   border-radius: 20px; 
   margin: 16px auto;
+  padding: 0 10px;
   line-height: 27px;
   width: 400px;
 }
